@@ -1,0 +1,769 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="C# MySQL 数据库编程 简明指南.NET 引用 MySQL 第一种方法  下载 mysql.data.dll  将文件放在项目目录下  在 Visual Studio 中，在项目中右键引用 -&gt; 添加引用 -&gt; 游览 -&gt; 选中 MySql.Data.dll 文件 -&gt; 确定    第二种方法 (我使用这个方法安装失败了)  使用 MySQL Connector安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C# MySQL 数据库编程简明指南">
+<meta property="og:url" content="http://example.com/2022/10/26/Csharp/C-MySQL/index.html">
+<meta property="og:site_name" content="Sukng&#39;s Blog">
+<meta property="og:description" content="C# MySQL 数据库编程 简明指南.NET 引用 MySQL 第一种方法  下载 mysql.data.dll  将文件放在项目目录下  在 Visual Studio 中，在项目中右键引用 -&gt; 添加引用 -&gt; 游览 -&gt; 选中 MySql.Data.dll 文件 -&gt; 确定    第二种方法 (我使用这个方法安装失败了)  使用 MySQL Connector安装">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-26T11:46:14.000Z">
+<meta property="article:modified_time" content="2022-10-30T07:33:49.120Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C#">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>C# MySQL 数据库编程简明指南 - Sukng&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Sukng&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="C# MySQL 数据库编程简明指南"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-26 19:46" pubdate>
+          2022年10月26日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C# MySQL 数据库编程简明指南</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="C-MySQL-数据库编程-简明指南"><a href="#C-MySQL-数据库编程-简明指南" class="headerlink" title="C# MySQL 数据库编程 简明指南"></a>C# MySQL 数据库编程 简明指南</h2><h3 id="NET-引用-MySQL"><a href="#NET-引用-MySQL" class="headerlink" title=".NET 引用 MySQL"></a>.NET 引用 MySQL</h3><ul>
+<li><p>第一种方法</p>
+<ul>
+<li><p>下载 <a target="_blank" rel="noopener" href="https://cn.dll-files.com/mysql.data.dll.html">mysql.data.dll</a></p>
+</li>
+<li><p>将文件放在项目目录下</p>
+</li>
+<li><p>在 Visual Studio 中，在项目中右键引用 -&gt; 添加引用 -&gt; 游览 -&gt; 选中 <code>MySql.Data.dll</code> 文件 -&gt; 确定</p>
+</li>
+</ul>
+</li>
+<li><p>第二种方法 (我使用这个方法安装失败了)</p>
+<ul>
+<li>使用 <a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/c-net/">MySQL Connector</a>安装<ul>
+<li>选择 Typical 安装即可</li>
+</ul>
+</li>
+<li>默认安装位置在 <code>C:\Program Files (x86)\MySQL\MySQL Connector Net 8.0.23\Assemblies\v4.5.2</code></li>
+<li>在 Visual Studio 中，引用 mysql.data.dll 文件</li>
+</ul>
+</li>
+<li><p>使用 Visual Studio 中的 NuGet 包管理器引用 MySQL</p>
+<ul>
+<li>工具 -&gt; NuGet 包管理器 -&gt; 管理解决方案的 NuGet 程序包</li>
+<li>在游览中输入 mysql</li>
+<li>添加 <code>MySql.Data</code>  官方版本即可</li>
+</ul>
+</li>
+</ul>
+<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><ul>
+<li><p>命名空间 <code>using MySql.Data.MySqlClient</code>;</p>
+</li>
+<li><p>使用 string 来编写连接语句</p>
+<ul>
+<li><p><code>data source</code>：服务器IP地址;</p>
+</li>
+<li><p><code>database</code>：数据库名称;</p>
+</li>
+<li><p><code>userid</code>：数据库用户名;</p>
+</li>
+<li><p><code>password</code>：数据库密码;</p>
+</li>
+<li><p><code>pooling</code>：是否放入连接池;</p>
+</li>
+<li><p><code>SslMode</code>:<strong>是否启用 SSL，没有打开的话得指定 none，否则会报错</strong></p>
+</li>
+<li><p><code>charset</code>：编码方式;</p>
+<div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-built_in">string</span> connSting = <span class="hljs-string">&quot;server=localhost;Database=&#x27;test&#x27;;User=&#x27;root&#x27;;Password=&#x27;root&#x27;;charset=&#x27;utf8&#x27;;pooling=false;SslMode=none&quot;</span>;</code></pre></div></li>
+</ul>
+</li>
+<li><p>使用 <code>MySqlConnectionStringBuilder</code> 来连接</p>
+<ul>
+<li><p>填写 <code>builder.UserID</code>，<code>builder.Password</code>，<code>builder.Server</code>，<code>builder.Database</code> 即可</p>
+</li>
+<li><p>最后通过 <code>builder.ConnectionString</code> 获取拼接完成的字符串</p>
+<div class="code-wrapper"><pre><code class="hljs c#">MySqlConnectionStringBuilder builder = <span class="hljs-keyword">new</span> MySqlConnectionStringBuilder();
+builder.UserID = <span class="hljs-string">&quot;root&quot;</span>;
+builder.Password = <span class="hljs-string">&quot;root&quot;</span>;
+builder.Server = <span class="hljs-string">&quot;localhost&quot;</span>;
+builder.Database = <span class="hljs-string">&quot;test&quot;</span>;
+builder.SslMode = MySqlSslMode.None;
+MySqlConnection connection = <span class="hljs-keyword">new</span> MySqlConnection(builder.ConnectionString);</code></pre></div></li>
+</ul>
+</li>
+<li><p>连接数据库：<code>MySqlConnection connection = new MySqlConnection(string);</code> </p>
+</li>
+<li><p>打开连接：<code>connection.Open()</code>;</p>
+</li>
+</ul>
+<h3 id="C-MySQL-常用语句"><a href="#C-MySQL-常用语句" class="headerlink" title="C# MySQL 常用语句"></a>C# MySQL 常用语句</h3><ul>
+<li><code>ExcuteReader</code>：执行多行查询，返回DataReader对象</li>
+<li><code>ExcuteScalar</code>：执行单行查询，返回查询结果的首行数据</li>
+<li>创建MySQL命令对象： <code>MySqlCommand cmd = new MySqlCommand(sql, msc);</code></li>
+<li>读取 <code>DataReader</code> 对象单行数据： <code>reader.Read()</code></li>
+<li>获取单行字段数据： <code>reader.GetInt32(0); reader.GetString(1);</code></li>
+</ul>
+<h4 id="MySqlConnection"><a href="#MySqlConnection" class="headerlink" title="MySqlConnection"></a>MySqlConnection</h4><p><code>MySqlConnection</code> 类是用来连接 MySQL 数据库的，它接收一个连接用的 <code>string</code>，返回一个 <code>MySqlConnection</code> 对象。</p>
+<p>获取到 <code>MysqlConnection</code> 之后必须要 <code>Open</code> 之后才能使用</p>
+<div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-built_in">string</span> connStr = <span class="hljs-string">&quot;server = localhost; user = root; database = world; port = 3306; password = ***&quot;</span>
+MySqlConnection conn = <span class="hljs-keyword">new</span> MySqlConnection(connStr) ;
+<span class="hljs-keyword">try</span>&#123;conn.Open();&#125;
+<span class="hljs-keyword">catch</span>(Exception ex)&#123;Console.WriteLine(ex.ToString());&#125;</code></pre></div>
+
+<h4 id="MySqlCommand"><a href="#MySqlCommand" class="headerlink" title="MySqlCommand"></a>MySqlCommand</h4><p><code>MySqlCommand</code> 对象实例化时接收两个参数：SQL语句（命令）以及和数据库的连接，即 <code>MySqlConnection</code> 连接对象。</p>
+<div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-built_in">string</span> sql = <span class="hljs-string">&quot;SELECT * from writer;&quot;</span> ;
+MySqlCommand cmd = <span class="hljs-keyword">new</span> MySqlCommand(sql, conn) ;</code></pre></div>
+
+<ul>
+<li><p>ExecuteReader：调用 <code>ExecuteReader</code> 方法来查询数据库。返回一个包含着查询结果的 <code>MySqlDataReader</code> 对象。</p>
+<div class="code-wrapper"><pre><code class="hljs c#">MysqlCommand cmd = <span class="hljs-keyword">new</span> MySqlCommand(sql, conn) ;
+MySqlDataReader rdr = cmd.ExecuteReader();
+<span class="hljs-keyword">while</span>(rdr.Read())
+&#123;
+    Console.WriteLine(rdr[<span class="hljs-number">0</span>] + <span class="hljs-string">&quot; -- &quot;</span> + rdr[<span class="hljs-number">1</span>]) ;
+&#125;
+rdr.Close() ;</code></pre></div></li>
+<li><p>ExecuteNonQuery：调用 <code>ExecuteNonQuery</code> 来插入和删除数据。</p>
+<div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-built_in">string</span> sql = <span class="hljs-string">&quot;INSERT INTO writer value(...)&quot;</span> ;
+MySqlCommand cmd = <span class="hljs-keyword">new</span> MySqlCommand(sql, conn);
+cmd.ExecuteNonQuery();</code></pre></div></li>
+<li><p>ExecuteScalar：仅返回单个值</p>
+<div class="code-wrapper"><pre><code class="hljs c#">sql = <span class="hljs-string">&quot;SELECT COUNT(*) FROM writer;&quot;</span>  ;
+MySqlCommand cmd = <span class="hljs-keyword">new</span> MySqlCommand(sql, conn) ;
+<span class="hljs-built_in">object</span> result = cmd.ExecuteScalar();
+<span class="hljs-keyword">if</span>(result != <span class="hljs-literal">null</span>)
+&#123;
+    <span class="hljs-built_in">int</span> r = Convert.ToInt32(result) ;
+    ...
+&#125;</code></pre></div></li>
+</ul>
+<h3 id="处理解耦数据"><a href="#处理解耦数据" class="headerlink" title="处理解耦数据"></a>处理解耦数据</h3><h4 id="数据集-DataSet"><a href="#数据集-DataSet" class="headerlink" title="数据集 DataSet"></a>数据集 DataSet</h4><p>数据集是用于存储和处理数据的地方，即是 <code>DataSet</code> 类，一个 <code>DataSet</code> 对象被实例化后，可以用来处理多个表的数据。</p>
+<div class="code-wrapper"><pre><code class="hljs c#">DataSet dsCountry=<span class="hljs-keyword">new</span> DataSet();</code></pre></div>
+
+<h4 id="数据适配器-MySqlDataAdapter"><a href="#数据适配器-MySqlDataAdapter" class="headerlink" title="数据适配器 MySqlDataAdapter"></a>数据适配器 MySqlDataAdapter</h4><ul>
+<li><p>数据适配器 数据适配器是连接数据集以及数据库之间的一个接口。数据适配器负责打开、关闭以及管理数据库的连接。 可以通过实例化 <code>MySqlDataAdapter</code> 对象来创建一个数据适配器。 数据适配器有两个主要的方法：</p>
+</li>
+<li><ul>
+<li><code>Fill</code> 方法 将数据库中的数据取出，装入数据集</li>
+<li><code>Update</code> 方法将数据集中的数据定入数据库中</li>
+</ul>
+</li>
+</ul>
+<div class="code-wrapper"><pre><code class="hljs c#">MySqlDataAdapter adapter ;
+...
+<span class="hljs-built_in">string</span> sql = <span class="hljs-string">&quot;SELECT Code, Name, HeadOfState FROM Country WHERE Continent = &#x27;North America&#x27;&quot;</span> ;
+adapter = <span class="hljs-keyword">new</span> MySqlDataAdapter(sql, conn) ;</code></pre></div>
+
+<h4 id="命令建造器-MySqlCommandBuilder"><a href="#命令建造器-MySqlCommandBuilder" class="headerlink" title="命令建造器 MySqlCommandBuilder"></a>命令建造器 MySqlCommandBuilder</h4><p>命令建造器 命令建造器是一个支持对象。命令建造器需要跟数据适配器一起协作。当一个 <code>MySqlDataAdapter</code> 被创建的时候，通常会给他一个初始的 SELECT 语句。根据这个 <code>SELECT</code> 语句，命令建造器可以判断出相应的 <code>INSERT</code>，<code>UPDATE</code> 和 <code>DELETE</code> 语句的格式。 这样，当你执行 <code>Update</code> 方法时，数据适配器就能够自动地把更改的数据更新到你的 SQL 数据库中去！你可以通过实例化 <code>MySqlCommandBuilder</code> 来创建一个命令建造器。</p>
+<p>一个命令建造器被创建之后，我们需要生成一些附加的语句提供给它，以用来插入、更新和删除数据。我们在这里只用最简单的一种方法：把适配器传给命令建造器。</p>
+<div class="code-wrapper"><pre><code class="hljs c#">MySqlCommandBuilder cb = <span class="hljs-keyword">new</span> MySqlCommandBuilder(adapter) ;</code></pre></div>
+
+<h5 id="整个流程"><a href="#整个流程" class="headerlink" title="整个流程"></a>整个流程</h5><div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-comment">// 创建连接实例</span>
+<span class="hljs-built_in">string</span> connStr = <span class="hljs-string">&quot;server=localhost;user=root;database=world;port=3306;password=***&quot;</span>;
+MySqlConnection conn = <span class="hljs-keyword">new</span> MySqlConnection(connStr) ;
+
+<span class="hljs-comment">// 使用连接实例以及SELECT语句初始化适配器</span>
+<span class="hljs-built_in">string</span> sql = <span class="hljs-string">&quot;SELECT Code, Name, HeadOfState FROM Country WHERE Continent = &#x27;North America&#x27;&quot;</span> ;
+adapter = <span class="hljs-keyword">new</span> MySqlDataAdapter (sql, conn) ;
+
+<span class="hljs-comment">// 使用适配器初始化命令建造器</span>
+MySqlCommandBuilder cb = <span class="hljs-keyword">new</span> MySqlCommandBuilder(adapter) ;
+
+<span class="hljs-comment">// 创建数据集</span>
+DataSetCountry = <span class="hljs-keyword">new</span> DataSet();
+
+<span class="hljs-comment">// 把数据库中的 Country 表加载进数据集</span>
+adapter.Fill(DataSetCountry, <span class="hljs-string">&quot;Country&quot;</span>) ;
+
+<span class="hljs-comment">// 设置控件dataGridView的数据来源</span>
+dataGridView1.DataSource = DataSetCountry ;
+dataGridView1.DataMember = <span class="hljs-string">&quot;Country&quot;</span> ;
+
+adapter.Update(DataSetCountry, <span class="hljs-string">&quot;Country&quot;</span>) ;</code></pre></div>
+
+<h3 id="防止-SQL-注入"><a href="#防止-SQL-注入" class="headerlink" title="防止 SQL 注入"></a>防止 SQL 注入</h3><p>在执行的 SQL 语句中，对每一个参数我们都用 <code>&#39;@&#39;</code> 加上一个参数名来代替。例如：</p>
+<div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-built_in">string</span> sql = SELECT * FROM writer WHERE NAME = @name<span class="hljs-string">&quot; ;</span></code></pre></div>
+
+<p>然后在命令构造器中绑定参数：</p>
+<div class="code-wrapper"><pre><code class="hljs c#">cmd.Parameter.AddWithValue(<span class="hljs-string">&quot;@name&quot;</span>, TextBox1.Text) ;</code></pre></div>
+
+<h3 id="处理存储过程"><a href="#处理存储过程" class="headerlink" title="处理存储过程"></a>处理存储过程</h3><div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-built_in">string</span> rtn = <span class="hljs-string">&quot;country_hos&quot;</span> ;
+MySqlCommand cmd = <span class="hljs-keyword">new</span> MySqlCommand(rtn, conn) ;
+cmd.CommandType = CommandType.StoredProcedure ;</code></pre></div>
+
+<p>首先在第一条语句中，<code>country_hos</code> 是我们要调用的存储过程的名字。</p>
+<p>接着第二句中，我们把这个存储过程的名字（或者说命令）传送给命令构造器，以实例化一个命令构造器。</p>
+<p>最后在第三句中，我们在这个命令构造器中指定命令的类型为调用存储过程。</p>
+<p>对于要传递给调用例程的参数，我们使用上一小节“处理参数”中的方法：</p>
+<div class="code-wrapper"><pre><code class="hljs c#">cmd.Parameter.AddWithValue(<span class="hljs-string">&quot;@con&quot;</span>, <span class="hljs-string">&quot;Europe&quot;</span>) ;</code></pre></div>
+
+<p>到这里，我们就可以通过之前学的三个执行方法去执行命令了。例如, <code>ExecuteReader()</code> 方法</p>
+<div class="code-wrapper"><pre><code class="hljs c#">MySqlConnection conn = <span class="hljs-keyword">new</span> MySqlConnection(<span class="hljs-string">&quot;server=localhost;user=root;database=world;port=3306;password=***&quot;</span>);
+<span class="hljs-keyword">try</span>
+&#123;
+    conn.Open() ;
+    MySqlCommand cmd = MysqlCommand(<span class="hljs-string">&quot;country_hos&quot;</span>, conn) ;
+    cmd.CommandType = CommandType.StoredProcedure ;
+    cmd.Parameter.AddWithValue(<span class="hljs-string">&#x27;@con&#x27;</span>, <span class="hljs-string">&#x27;Europe&#x27;</span>) ;
+    MySqlDataReader rdr = cmd.ExecuteReader() ;
+    <span class="hljs-keyword">while</span>(rdr.Read())
+        Console.WriterLine(rdr[<span class="hljs-number">0</span>] + <span class="hljs-string">&quot; --- &quot;</span> + rdr[<span class="hljs-number">1</span>]) ;
+    rdr.Close() ;
+&#125;
+<span class="hljs-keyword">catch</span>(Exception ex) &#123; <span class="hljs-comment">// &#125;</span>
+conn.Close() ;</code></pre></div>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/MySQL/" class="category-chain-item">MySQL</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C/">#C#</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/11/09/Csharp/C-Lambda/" title="C# Lambda">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C# Lambda</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/19/%E7%AE%97%E6%B3%95/Leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/236-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" title="236.二叉树的最近公共祖先">
+                        <span class="hidden-mobile">236.二叉树的最近公共祖先</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Base on  <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> & <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

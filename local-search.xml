@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Unity 程序集</title>
+    <link href="/2022/12/05/Unity/Unity%20%E7%A8%8B%E5%BA%8F%E9%9B%86/"/>
+    <url>/2022/12/05/Unity/Unity%20%E7%A8%8B%E5%BA%8F%E9%9B%86/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Unity-程序集"><a href="#Unity-程序集" class="headerlink" title="Unity 程序集"></a>Unity 程序集</h2><p>程序集就是在 Visual Studio 解决方案视图中 Assembly-CSharp 这类文件，在程序集文件的同一目录下的代码文件会归属于该程序集</p><h3 id="使用程序集的好处"><a href="#使用程序集的好处" class="headerlink" title="使用程序集的好处"></a>使用程序集的好处</h3><ul><li><p>提高编译速度</p><p>如果不指定程序集，Unity 会把代码文件放入默认的程序集 Assembly-CSahrp，每当编写完代码时，都会编译程序集下的所有代码文件，使用多个程序集可以提高编译速度</p></li><li><p>减少项目的耦合度</p><p>比如，不同的系统可以分为不同的程序集，比如成就系统，攻击系统，移动系统</p></li></ul><h3 id="创建程序集"><a href="#创建程序集" class="headerlink" title="创建程序集"></a>创建程序集</h3><ul><li>Create - Assembly Definition</li></ul><h3 id="添加程序集依赖"><a href="#添加程序集依赖" class="headerlink" title="添加程序集依赖"></a>添加程序集依赖</h3><ul><li>希望程序集之间相互依赖，可以在程序集的 Inspector 界面中的 Assembly Definition References 添加其他的程序集</li><li>勾选 Auto Reference 的选项，会自动添加依赖</li></ul><h4 id="程序集的命名空间"><a href="#程序集的命名空间" class="headerlink" title="程序集的命名空间"></a>程序集的命名空间</h4><p>可以在 Inspector 中的 Root Namespace中指定该程序集下的命名空间，在此文件夹下新建代码文件时，会自动填上命名空间</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Unity</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Unity</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Unity Post Processing 简单使用</title>
+    <link href="/2022/11/20/Unity/Unity%20Post%20Processing%20%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <url>/2022/11/20/Unity/Unity%20Post%20Processing%20%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Unity-Post-Processing-简单使用"><a href="#Unity-Post-Processing-简单使用" class="headerlink" title="Unity Post Processing 简单使用"></a>Unity Post Processing 简单使用</h2><h3 id="导入进项目"><a href="#导入进项目" class="headerlink" title="导入进项目"></a>导入进项目</h3><h4 id="2020-1-Above-URP-Project"><a href="#2020-1-Above-URP-Project" class="headerlink" title="2020.1 Above URP Project"></a>2020.1 Above URP Project</h4><ul><li><p>URP 项目自带 Post Processing，不需要额外添加</p></li><li><p>在 Hierarchy 窗口创建 Global Volume</p></li><li><p>在 Global Volume 中按下 New，创建配置文件</p></li><li><p>记得要勾选主相机中的 Use Post Process</p></li><li><p>通过 Add Override 添加效果</p></li><li><p>如果是 URP，需要在 URP 资源中勾选 HDR 以开启更多效果</p></li></ul><h4 id="2019-4-Below"><a href="#2019-4-Below" class="headerlink" title="2019.4 Below"></a>2019.4 Below</h4><ul><li>在 Package Manager 中下载 Post Processing</li><li>创建空物体并添加 Post Process Volume 组件</li><li>创建配置文件，拖拽到 Volume 上</li><li>勾选 isGlobal，全局响应</li><li>在创建的空物体的 Layer 新建一个专门用于后处理的 Layer 并选择</li><li>选中主相机，添加 Post Process Layer 组件，并且选择后处理的 Layer</li></ul><h3 id="相机和电影视觉效果"><a href="#相机和电影视觉效果" class="headerlink" title="相机和电影视觉效果"></a>相机和电影视觉效果</h3><ul><li>Bloom：炫光</li><li>Chromatic Aberration：色差</li><li>Film Grain：胶片颗粒</li><li>Vignette：暗角</li><li>Depth of Field：景深</li><li>Motion Blur：运动模糊</li><li>Lens Distortion：镜头畸变</li><li>Panini Projection：帕尼尼效果</li><li>(2019)Ambient Occlusion：环境光遮蔽</li></ul><h3 id="颜色效果"><a href="#颜色效果" class="headerlink" title="颜色效果"></a>颜色效果</h3><ul><li>Tone Mapping：色调映射</li><li>White Balance：白平衡</li><li>Color Adjustment：色彩调整</li><li>Split Tone：色调分离</li></ul><p>​    </p><ul><li>Channel Mixer：通道混合器</li><li>Color Curves：颜色曲线</li><li>Shadows，Midtones，Highlights：阴影，中间色调，高光</li><li>Life，Gamma，Gain：提升，伽马，增益</li></ul><ul><li>Color Lookup Table：颜色查找 </li></ul><h4 id="一些有关设定"><a href="#一些有关设定" class="headerlink" title="一些有关设定"></a>一些有关设定</h4><ul><li>Dithering：抖色 </li><li>Anti-Aliasing：抗锯齿 </li></ul><h3 id="脚本控制-Post-Processing"><a href="#脚本控制-Post-Processing" class="headerlink" title="脚本控制 Post Processing"></a>脚本控制 Post Processing</h3><ul><li>命名空间：UnityEngine.Rendering.PostProcessing</li></ul><h4 id="物体上挂载-Volume-时操作对象"><a href="#物体上挂载-Volume-时操作对象" class="headerlink" title="物体上挂载 Volume 时操作对象"></a>物体上挂载 Volume 时操作对象</h4><div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-keyword">using</span> UnityEngine.Rendering.PostProcessing<span class="hljs-keyword">private</span> PostProcessVolue volume;<span class="hljs-keyword">private</span> Vignette vignette;<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span>&#123;    volue=GetComponent&lt;PostProcessVolume&gt;();    volume.profile.TryGetSetting(<span class="hljs-function"><span class="hljs-keyword">out</span> <span class="hljs-title">vignette</span>()</span>;&#125;                                 <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddVignette</span>()</span>&#123;    <span class="hljs-keyword">if</span>(Input.GetKeyDown(KeyCode.Space))    &#123;        vignette.intensity.<span class="hljs-keyword">value</span> = <span class="hljs-number">1.0f</span>;        <span class="hljs-comment">//vignette.intensity.Override(1.0f);</span>    &#125;&#125;</code></pre></div><h4 id="没有-Volume-时操作对象"><a href="#没有-Volume-时操作对象" class="headerlink" title="没有 Volume 时操作对象"></a>没有 Volume 时操作对象</h4><div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-keyword">using</span> UnityEngine.Rendering.PostProcessing<span class="hljs-keyword">private</span> PostProcessVolue volume;<span class="hljs-keyword">private</span> Vignette vignette;<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span>&#123;    vignette = ScriptableObject.CreateInstance&lt;Vignette&gt;();    vignette.enabled.Overide(<span class="hljs-literal">true</span>);    vignette.intensity.Overide(<span class="hljs-number">1.0f</span>);        volume = PostProcessManager.instance.QuickVolume(gameObject.layer,<span class="hljs-number">1</span>,vignette);&#125;                                 <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AddVignette</span>()</span>&#123;    <span class="hljs-comment"><span class="hljs-doctag">///</span></span>&#125;<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnDestroy</span>()</span>&#123;    RuntimeUtilities.DestroyVolume(volume,<span class="hljs-literal">true</span>,<span class="hljs-literal">true</span>);&#125;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Unity</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Unity</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>C# Delegate&amp;Event</title>
+    <link href="/2022/11/09/Csharp/C-Delegate-Event/"/>
+    <url>/2022/11/09/Csharp/C-Delegate-Event/</url>
+    
+    <content type="html"><![CDATA[<h2 id="C-Lambda"><a href="#C-Lambda" class="headerlink" title="C# Lambda"></a>C# Lambda</h2><p>使用 Lambda 表达式来创建匿名函数，使用运算符 <code>=&gt;</code> 来从主题中分离参数列表，Lambda 表达式可以采用一下任意一种形式</p><ul><li><p>表达式 Lambda，<strong>表达式</strong>为主体</p><div class="code-wrapper"><pre><code class="hljs c#">(input-parameters) =&gt; expression</code></pre></div></li><li><p>语句 Lambda，语句块作为其主体</p><div class="code-wrapper"><pre><code class="hljs c#">(input-parameters) =&gt; &#123; &lt;sequence-of-statements&gt; &#125;</code></pre></div></li><li><p>若要创建 Lambda 表达式，需要在 Lambda 运算符左侧指定输入参数（如果有），然后在另一侧输入表达式或语句块。</p></li><li><p>任何 Lambda 表达式都可以转换为<a href="https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/reference-types#the-delegate-type">委托</a>类型。 Lambda 表达式可以转换的委托类型由其参数和返回值的类型定义。 如果 lambda 表达式不返回值，则可以将其转换为 <code>Action</code> 委托类型之一；否则，可将其转换为 <code>Func</code> 委托类型之一</p></li></ul><h3 id="Lambda-表达式的输入参数"><a href="#Lambda-表达式的输入参数" class="headerlink" title="Lambda 表达式的输入参数"></a>Lambda 表达式的输入参数</h3><ul><li><p>将 lambda 表达式的输入参数括在括号中。 使用空括号指定零个输入参数：</p><div class="code-wrapper"><pre><code class="hljs c#">Action line = () =&gt; Console.WriteLine();</code></pre></div></li><li><p>如果 lambda 表达式只有一个输入参数，则括号是可选的：</p><div class="code-wrapper"><pre><code class="hljs c#">Func&lt;<span class="hljs-built_in">double</span>, <span class="hljs-built_in">double</span>&gt; cube = x =&gt; x * x * x;</code></pre></div></li><li><p>两个或更多输入参数使用逗号加以分隔：</p><div class="code-wrapper"><pre><code class="hljs c#">Func&lt;<span class="hljs-built_in">int</span>, <span class="hljs-built_in">int</span>, <span class="hljs-built_in">bool</span>&gt; testForEquality = (x, y) =&gt; x == y;</code></pre></div></li><li><p>有时，编译器无法推断输入参数的类型。 可以显式指定类型，如下面的示例所示：</p><div class="code-wrapper"><pre><code class="hljs c#">Func&lt;<span class="hljs-built_in">int</span>, <span class="hljs-built_in">string</span>, <span class="hljs-built_in">bool</span>&gt; isTooLong = (<span class="hljs-built_in">int</span> x, <span class="hljs-built_in">string</span> s) =&gt; s.Length &gt; x;</code></pre></div></li><li><p>输入参数类型必须全部为显式或全部为隐式；否则，便会生成 <a href="https://learn.microsoft.com/zh-cn/dotnet/csharp/misc/cs0748">CS0748</a> 编译器错误。</p></li></ul><h3 id="Lambda-表达式的类型推断"><a href="#Lambda-表达式的类型推断" class="headerlink" title="Lambda 表达式的类型推断"></a>Lambda 表达式的类型推断</h3><p>编写 Lambda 时，通常不必为输入参数指定类型，因为编译器可以根据 Lambda 主体、参数类型以及 C# 语言规范中描述的其他因素来推断类型。</p><p>Lambda 类型推理的一般规则如下：</p><ul><li>Lambda 包含的参数数量必须与委托类型包含的参数数量相同。</li><li>Lambda 中的每个输入参数必须都能够隐式转换为其对应的委托参数。</li><li>Lambda 的返回值（如果有）必须能够隐式转换为委托的返回类型。</li></ul><h3 id="Lambda-显式返回类型"><a href="#Lambda-显式返回类型" class="headerlink" title="Lambda 显式返回类型"></a>Lambda 显式返回类型</h3><p>从 C# 10 开始，可以在输入参数前面指定 Lambda 表达式的返回类型。 指定显式返回类型时，必须将输入参数括起来：</p><div class="code-wrapper"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> choose = <span class="hljs-built_in">object</span> (<span class="hljs-built_in">bool</span> b) =&gt; b ? <span class="hljs-number">1</span> : <span class="hljs-string">&quot;two&quot;</span>; <span class="hljs-comment">// Func&lt;bool, object&gt;</span></code></pre></div><h3 id="使用-Lambda-表达式声明属性"><a href="#使用-Lambda-表达式声明属性" class="headerlink" title="使用 Lambda 表达式声明属性"></a>使用 Lambda 表达式声明属性</h3><p>表示该属性是<strong>只读</strong>属性</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C#语法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C#</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>C# Lambda</title>
+    <link href="/2022/11/09/Csharp/C-Lambda/"/>
+    <url>/2022/11/09/Csharp/C-Lambda/</url>
+    
+    <content type="html"><![CDATA[<h2 id="C-Lambda"><a href="#C-Lambda" class="headerlink" title="C# Lambda"></a>C# Lambda</h2><p>使用 Lambda 表达式来创建匿名函数，使用运算符 <code>=&gt;</code> 来从主题中分离参数列表，Lambda 表达式可以采用一下任意一种形式</p><ul><li><p>表达式 Lambda，<strong>表达式</strong>为主体</p><div class="code-wrapper"><pre><code class="hljs c#">(input-parameters) =&gt; expression</code></pre></div></li><li><p>语句 Lambda，语句块作为其主体</p><div class="code-wrapper"><pre><code class="hljs c#">(input-parameters) =&gt; &#123; &lt;sequence-of-statements&gt; &#125;</code></pre></div></li><li><p>若要创建 Lambda 表达式，需要在 Lambda 运算符左侧指定输入参数（如果有），然后在另一侧输入表达式或语句块。</p></li><li><p>任何 Lambda 表达式都可以转换为<a href="https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/reference-types#the-delegate-type">委托</a>类型。 Lambda 表达式可以转换的委托类型由其参数和返回值的类型定义。 如果 lambda 表达式不返回值，则可以将其转换为 <code>Action</code> 委托类型之一；否则，可将其转换为 <code>Func</code> 委托类型之一</p></li></ul><h3 id="Lambda-表达式的输入参数"><a href="#Lambda-表达式的输入参数" class="headerlink" title="Lambda 表达式的输入参数"></a>Lambda 表达式的输入参数</h3><ul><li><p>将 lambda 表达式的输入参数括在括号中。 使用空括号指定零个输入参数：</p><div class="code-wrapper"><pre><code class="hljs c#">Action line = () =&gt; Console.WriteLine();</code></pre></div></li><li><p>如果 lambda 表达式只有一个输入参数，则括号是可选的：</p><div class="code-wrapper"><pre><code class="hljs c#">Func&lt;<span class="hljs-built_in">double</span>, <span class="hljs-built_in">double</span>&gt; cube = x =&gt; x * x * x;</code></pre></div></li><li><p>两个或更多输入参数使用逗号加以分隔：</p><div class="code-wrapper"><pre><code class="hljs c#">Func&lt;<span class="hljs-built_in">int</span>, <span class="hljs-built_in">int</span>, <span class="hljs-built_in">bool</span>&gt; testForEquality = (x, y) =&gt; x == y;</code></pre></div></li><li><p>有时，编译器无法推断输入参数的类型。 可以显式指定类型，如下面的示例所示：</p><div class="code-wrapper"><pre><code class="hljs c#">Func&lt;<span class="hljs-built_in">int</span>, <span class="hljs-built_in">string</span>, <span class="hljs-built_in">bool</span>&gt; isTooLong = (<span class="hljs-built_in">int</span> x, <span class="hljs-built_in">string</span> s) =&gt; s.Length &gt; x;</code></pre></div></li><li><p>输入参数类型必须全部为显式或全部为隐式；否则，便会生成 <a href="https://learn.microsoft.com/zh-cn/dotnet/csharp/misc/cs0748">CS0748</a> 编译器错误。</p></li></ul><h3 id="Lambda-表达式的类型推断"><a href="#Lambda-表达式的类型推断" class="headerlink" title="Lambda 表达式的类型推断"></a>Lambda 表达式的类型推断</h3><p>编写 Lambda 时，通常不必为输入参数指定类型，因为编译器可以根据 Lambda 主体、参数类型以及 C# 语言规范中描述的其他因素来推断类型。</p><p>Lambda 类型推理的一般规则如下：</p><ul><li>Lambda 包含的参数数量必须与委托类型包含的参数数量相同。</li><li>Lambda 中的每个输入参数必须都能够隐式转换为其对应的委托参数。</li><li>Lambda 的返回值（如果有）必须能够隐式转换为委托的返回类型。</li></ul><h3 id="Lambda-显式返回类型"><a href="#Lambda-显式返回类型" class="headerlink" title="Lambda 显式返回类型"></a>Lambda 显式返回类型</h3><p>从 C# 10 开始，可以在输入参数前面指定 Lambda 表达式的返回类型。 指定显式返回类型时，必须将输入参数括起来：</p><div class="code-wrapper"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> choose = <span class="hljs-built_in">object</span> (<span class="hljs-built_in">bool</span> b) =&gt; b ? <span class="hljs-number">1</span> : <span class="hljs-string">&quot;two&quot;</span>; <span class="hljs-comment">// Func&lt;bool, object&gt;</span></code></pre></div><h3 id="使用-Lambda-表达式声明属性"><a href="#使用-Lambda-表达式声明属性" class="headerlink" title="使用 Lambda 表达式声明属性"></a>使用 Lambda 表达式声明属性</h3><p>表示该属性是<strong>只读</strong>属性</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C#语法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C#</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>C# MySQL 数据库编程简明指南</title>
+    <link href="/2022/10/26/Csharp/C-MySQL/"/>
+    <url>/2022/10/26/Csharp/C-MySQL/</url>
+    
+    <content type="html"><![CDATA[<h2 id="C-MySQL-数据库编程-简明指南"><a href="#C-MySQL-数据库编程-简明指南" class="headerlink" title="C# MySQL 数据库编程 简明指南"></a>C# MySQL 数据库编程 简明指南</h2><h3 id="NET-引用-MySQL"><a href="#NET-引用-MySQL" class="headerlink" title=".NET 引用 MySQL"></a>.NET 引用 MySQL</h3><ul><li><p>第一种方法</p><ul><li><p>下载 <a href="https://cn.dll-files.com/mysql.data.dll.html">mysql.data.dll</a></p></li><li><p>将文件放在项目目录下</p></li><li><p>在 Visual Studio 中，在项目中右键引用 -&gt; 添加引用 -&gt; 游览 -&gt; 选中 <code>MySql.Data.dll</code> 文件 -&gt; 确定</p></li></ul></li><li><p>第二种方法 (我使用这个方法安装失败了)</p><ul><li>使用 <a href="https://downloads.mysql.com/archives/c-net/">MySQL Connector</a>安装<ul><li>选择 Typical 安装即可</li></ul></li><li>默认安装位置在 <code>C:\Program Files (x86)\MySQL\MySQL Connector Net 8.0.23\Assemblies\v4.5.2</code></li><li>在 Visual Studio 中，引用 mysql.data.dll 文件</li></ul></li><li><p>使用 Visual Studio 中的 NuGet 包管理器引用 MySQL</p><ul><li>工具 -&gt; NuGet 包管理器 -&gt; 管理解决方案的 NuGet 程序包</li><li>在游览中输入 mysql</li><li>添加 <code>MySql.Data</code>  官方版本即可</li></ul></li></ul><h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><ul><li><p>命名空间 <code>using MySql.Data.MySqlClient</code>;</p></li><li><p>使用 string 来编写连接语句</p><ul><li><p><code>data source</code>：服务器IP地址;</p></li><li><p><code>database</code>：数据库名称;</p></li><li><p><code>userid</code>：数据库用户名;</p></li><li><p><code>password</code>：数据库密码;</p></li><li><p><code>pooling</code>：是否放入连接池;</p></li><li><p><code>SslMode</code>:<strong>是否启用 SSL，没有打开的话得指定 none，否则会报错</strong></p></li><li><p><code>charset</code>：编码方式;</p><div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-built_in">string</span> connSting = <span class="hljs-string">&quot;server=localhost;Database=&#x27;test&#x27;;User=&#x27;root&#x27;;Password=&#x27;root&#x27;;charset=&#x27;utf8&#x27;;pooling=false;SslMode=none&quot;</span>;</code></pre></div></li></ul></li><li><p>使用 <code>MySqlConnectionStringBuilder</code> 来连接</p><ul><li><p>填写 <code>builder.UserID</code>，<code>builder.Password</code>，<code>builder.Server</code>，<code>builder.Database</code> 即可</p></li><li><p>最后通过 <code>builder.ConnectionString</code> 获取拼接完成的字符串</p><div class="code-wrapper"><pre><code class="hljs c#">MySqlConnectionStringBuilder builder = <span class="hljs-keyword">new</span> MySqlConnectionStringBuilder();builder.UserID = <span class="hljs-string">&quot;root&quot;</span>;builder.Password = <span class="hljs-string">&quot;root&quot;</span>;builder.Server = <span class="hljs-string">&quot;localhost&quot;</span>;builder.Database = <span class="hljs-string">&quot;test&quot;</span>;builder.SslMode = MySqlSslMode.None;MySqlConnection connection = <span class="hljs-keyword">new</span> MySqlConnection(builder.ConnectionString);</code></pre></div></li></ul></li><li><p>连接数据库：<code>MySqlConnection connection = new MySqlConnection(string);</code> </p></li><li><p>打开连接：<code>connection.Open()</code>;</p></li></ul><h3 id="C-MySQL-常用语句"><a href="#C-MySQL-常用语句" class="headerlink" title="C# MySQL 常用语句"></a>C# MySQL 常用语句</h3><ul><li><code>ExcuteReader</code>：执行多行查询，返回DataReader对象</li><li><code>ExcuteScalar</code>：执行单行查询，返回查询结果的首行数据</li><li>创建MySQL命令对象： <code>MySqlCommand cmd = new MySqlCommand(sql, msc);</code></li><li>读取 <code>DataReader</code> 对象单行数据： <code>reader.Read()</code></li><li>获取单行字段数据： <code>reader.GetInt32(0); reader.GetString(1);</code></li></ul><h4 id="MySqlConnection"><a href="#MySqlConnection" class="headerlink" title="MySqlConnection"></a>MySqlConnection</h4><p><code>MySqlConnection</code> 类是用来连接 MySQL 数据库的，它接收一个连接用的 <code>string</code>，返回一个 <code>MySqlConnection</code> 对象。</p><p>获取到 <code>MysqlConnection</code> 之后必须要 <code>Open</code> 之后才能使用</p><div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-built_in">string</span> connStr = <span class="hljs-string">&quot;server = localhost; user = root; database = world; port = 3306; password = ***&quot;</span>MySqlConnection conn = <span class="hljs-keyword">new</span> MySqlConnection(connStr) ;<span class="hljs-keyword">try</span>&#123;conn.Open();&#125;<span class="hljs-keyword">catch</span>(Exception ex)&#123;Console.WriteLine(ex.ToString());&#125;</code></pre></div><h4 id="MySqlCommand"><a href="#MySqlCommand" class="headerlink" title="MySqlCommand"></a>MySqlCommand</h4><p><code>MySqlCommand</code> 对象实例化时接收两个参数：SQL语句（命令）以及和数据库的连接，即 <code>MySqlConnection</code> 连接对象。</p><div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-built_in">string</span> sql = <span class="hljs-string">&quot;SELECT * from writer;&quot;</span> ;MySqlCommand cmd = <span class="hljs-keyword">new</span> MySqlCommand(sql, conn) ;</code></pre></div><ul><li><p>ExecuteReader：调用 <code>ExecuteReader</code> 方法来查询数据库。返回一个包含着查询结果的 <code>MySqlDataReader</code> 对象。</p><div class="code-wrapper"><pre><code class="hljs c#">MysqlCommand cmd = <span class="hljs-keyword">new</span> MySqlCommand(sql, conn) ;MySqlDataReader rdr = cmd.ExecuteReader();<span class="hljs-keyword">while</span>(rdr.Read())&#123;    Console.WriteLine(rdr[<span class="hljs-number">0</span>] + <span class="hljs-string">&quot; -- &quot;</span> + rdr[<span class="hljs-number">1</span>]) ;&#125;rdr.Close() ;</code></pre></div></li><li><p>ExecuteNonQuery：调用 <code>ExecuteNonQuery</code> 来插入和删除数据。</p><div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-built_in">string</span> sql = <span class="hljs-string">&quot;INSERT INTO writer value(...)&quot;</span> ;MySqlCommand cmd = <span class="hljs-keyword">new</span> MySqlCommand(sql, conn);cmd.ExecuteNonQuery();</code></pre></div></li><li><p>ExecuteScalar：仅返回单个值</p><div class="code-wrapper"><pre><code class="hljs c#">sql = <span class="hljs-string">&quot;SELECT COUNT(*) FROM writer;&quot;</span>  ;MySqlCommand cmd = <span class="hljs-keyword">new</span> MySqlCommand(sql, conn) ;<span class="hljs-built_in">object</span> result = cmd.ExecuteScalar();<span class="hljs-keyword">if</span>(result != <span class="hljs-literal">null</span>)&#123;    <span class="hljs-built_in">int</span> r = Convert.ToInt32(result) ;    ...&#125;</code></pre></div></li></ul><h3 id="处理解耦数据"><a href="#处理解耦数据" class="headerlink" title="处理解耦数据"></a>处理解耦数据</h3><h4 id="数据集-DataSet"><a href="#数据集-DataSet" class="headerlink" title="数据集 DataSet"></a>数据集 DataSet</h4><p>数据集是用于存储和处理数据的地方，即是 <code>DataSet</code> 类，一个 <code>DataSet</code> 对象被实例化后，可以用来处理多个表的数据。</p><div class="code-wrapper"><pre><code class="hljs c#">DataSet dsCountry=<span class="hljs-keyword">new</span> DataSet();</code></pre></div><h4 id="数据适配器-MySqlDataAdapter"><a href="#数据适配器-MySqlDataAdapter" class="headerlink" title="数据适配器 MySqlDataAdapter"></a>数据适配器 MySqlDataAdapter</h4><ul><li><p>数据适配器 数据适配器是连接数据集以及数据库之间的一个接口。数据适配器负责打开、关闭以及管理数据库的连接。 可以通过实例化 <code>MySqlDataAdapter</code> 对象来创建一个数据适配器。 数据适配器有两个主要的方法：</p></li><li><ul><li><code>Fill</code> 方法 将数据库中的数据取出，装入数据集</li><li><code>Update</code> 方法将数据集中的数据定入数据库中</li></ul></li></ul><div class="code-wrapper"><pre><code class="hljs c#">MySqlDataAdapter adapter ;...<span class="hljs-built_in">string</span> sql = <span class="hljs-string">&quot;SELECT Code, Name, HeadOfState FROM Country WHERE Continent = &#x27;North America&#x27;&quot;</span> ;adapter = <span class="hljs-keyword">new</span> MySqlDataAdapter(sql, conn) ;</code></pre></div><h4 id="命令建造器-MySqlCommandBuilder"><a href="#命令建造器-MySqlCommandBuilder" class="headerlink" title="命令建造器 MySqlCommandBuilder"></a>命令建造器 MySqlCommandBuilder</h4><p>命令建造器 命令建造器是一个支持对象。命令建造器需要跟数据适配器一起协作。当一个 <code>MySqlDataAdapter</code> 被创建的时候，通常会给他一个初始的 SELECT 语句。根据这个 <code>SELECT</code> 语句，命令建造器可以判断出相应的 <code>INSERT</code>，<code>UPDATE</code> 和 <code>DELETE</code> 语句的格式。 这样，当你执行 <code>Update</code> 方法时，数据适配器就能够自动地把更改的数据更新到你的 SQL 数据库中去！你可以通过实例化 <code>MySqlCommandBuilder</code> 来创建一个命令建造器。</p><p>一个命令建造器被创建之后，我们需要生成一些附加的语句提供给它，以用来插入、更新和删除数据。我们在这里只用最简单的一种方法：把适配器传给命令建造器。</p><div class="code-wrapper"><pre><code class="hljs c#">MySqlCommandBuilder cb = <span class="hljs-keyword">new</span> MySqlCommandBuilder(adapter) ;</code></pre></div><h5 id="整个流程"><a href="#整个流程" class="headerlink" title="整个流程"></a>整个流程</h5><div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-comment">// 创建连接实例</span><span class="hljs-built_in">string</span> connStr = <span class="hljs-string">&quot;server=localhost;user=root;database=world;port=3306;password=***&quot;</span>;MySqlConnection conn = <span class="hljs-keyword">new</span> MySqlConnection(connStr) ;<span class="hljs-comment">// 使用连接实例以及SELECT语句初始化适配器</span><span class="hljs-built_in">string</span> sql = <span class="hljs-string">&quot;SELECT Code, Name, HeadOfState FROM Country WHERE Continent = &#x27;North America&#x27;&quot;</span> ;adapter = <span class="hljs-keyword">new</span> MySqlDataAdapter (sql, conn) ;<span class="hljs-comment">// 使用适配器初始化命令建造器</span>MySqlCommandBuilder cb = <span class="hljs-keyword">new</span> MySqlCommandBuilder(adapter) ;<span class="hljs-comment">// 创建数据集</span>DataSetCountry = <span class="hljs-keyword">new</span> DataSet();<span class="hljs-comment">// 把数据库中的 Country 表加载进数据集</span>adapter.Fill(DataSetCountry, <span class="hljs-string">&quot;Country&quot;</span>) ;<span class="hljs-comment">// 设置控件dataGridView的数据来源</span>dataGridView1.DataSource = DataSetCountry ;dataGridView1.DataMember = <span class="hljs-string">&quot;Country&quot;</span> ;adapter.Update(DataSetCountry, <span class="hljs-string">&quot;Country&quot;</span>) ;</code></pre></div><h3 id="防止-SQL-注入"><a href="#防止-SQL-注入" class="headerlink" title="防止 SQL 注入"></a>防止 SQL 注入</h3><p>在执行的 SQL 语句中，对每一个参数我们都用 <code>&#39;@&#39;</code> 加上一个参数名来代替。例如：</p><div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-built_in">string</span> sql = SELECT * FROM writer WHERE NAME = @name<span class="hljs-string">&quot; ;</span></code></pre></div><p>然后在命令构造器中绑定参数：</p><div class="code-wrapper"><pre><code class="hljs c#">cmd.Parameter.AddWithValue(<span class="hljs-string">&quot;@name&quot;</span>, TextBox1.Text) ;</code></pre></div><h3 id="处理存储过程"><a href="#处理存储过程" class="headerlink" title="处理存储过程"></a>处理存储过程</h3><div class="code-wrapper"><pre><code class="hljs c#"><span class="hljs-built_in">string</span> rtn = <span class="hljs-string">&quot;country_hos&quot;</span> ;MySqlCommand cmd = <span class="hljs-keyword">new</span> MySqlCommand(rtn, conn) ;cmd.CommandType = CommandType.StoredProcedure ;</code></pre></div><p>首先在第一条语句中，<code>country_hos</code> 是我们要调用的存储过程的名字。</p><p>接着第二句中，我们把这个存储过程的名字（或者说命令）传送给命令构造器，以实例化一个命令构造器。</p><p>最后在第三句中，我们在这个命令构造器中指定命令的类型为调用存储过程。</p><p>对于要传递给调用例程的参数，我们使用上一小节“处理参数”中的方法：</p><div class="code-wrapper"><pre><code class="hljs c#">cmd.Parameter.AddWithValue(<span class="hljs-string">&quot;@con&quot;</span>, <span class="hljs-string">&quot;Europe&quot;</span>) ;</code></pre></div><p>到这里，我们就可以通过之前学的三个执行方法去执行命令了。例如, <code>ExecuteReader()</code> 方法</p><div class="code-wrapper"><pre><code class="hljs c#">MySqlConnection conn = <span class="hljs-keyword">new</span> MySqlConnection(<span class="hljs-string">&quot;server=localhost;user=root;database=world;port=3306;password=***&quot;</span>);<span class="hljs-keyword">try</span>&#123;    conn.Open() ;    MySqlCommand cmd = MysqlCommand(<span class="hljs-string">&quot;country_hos&quot;</span>, conn) ;    cmd.CommandType = CommandType.StoredProcedure ;    cmd.Parameter.AddWithValue(<span class="hljs-string">&#x27;@con&#x27;</span>, <span class="hljs-string">&#x27;Europe&#x27;</span>) ;    MySqlDataReader rdr = cmd.ExecuteReader() ;    <span class="hljs-keyword">while</span>(rdr.Read())        Console.WriterLine(rdr[<span class="hljs-number">0</span>] + <span class="hljs-string">&quot; --- &quot;</span> + rdr[<span class="hljs-number">1</span>]) ;    rdr.Close() ;&#125;<span class="hljs-keyword">catch</span>(Exception ex) &#123; <span class="hljs-comment">// &#125;</span>conn.Close() ;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>MySQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C#</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>236.二叉树的最近公共祖先</title>
+    <link href="/2022/10/19/%E7%AE%97%E6%B3%95/Leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/236-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/"/>
+    <url>/2022/10/19/%E7%AE%97%E6%B3%95/Leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/236-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/</url>
+    
+    <content type="html"><![CDATA[<h2 id="236-二叉树的最近公共祖先"><a href="#236-二叉树的最近公共祖先" class="headerlink" title="236. 二叉树的最近公共祖先"></a><a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/">236. 二叉树的最近公共祖先</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。</p><p>百度百科中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表示为一个节点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（<strong>一个节点也可以是它自己的祖先</strong>）。”</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" alt="img"></p><div class="code-wrapper"><pre><code class="hljs stylus">输入：root = <span class="hljs-selector-attr">[3,5,1,6,2,0,8,null,null,7,4]</span>, <span class="hljs-selector-tag">p</span> = <span class="hljs-number">5</span>, <span class="hljs-selector-tag">q</span> = <span class="hljs-number">1</span>输出：<span class="hljs-number">3</span>解释：节点 <span class="hljs-number">5</span> 和节点 <span class="hljs-number">1</span> 的最近公共祖先是节点 <span class="hljs-number">3</span> 。</code></pre></div><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><blockquote><p>这道题的解决思路真的太惊艳了，我第一反应是遍历二叉树，用双向队列记录一路找到的子节点，然后 p 和 q 都有两个对应的队列，然后分别 push 这两个队列，当他们 push 的值相等的时候则是他们的公共父节点，但是这道题真的把定义和递归这两个概念讲明白的，真的太牛逼。</p></blockquote><p><strong>祖先的定义</strong>：若节点 p 在节点 root 的左（右）子树中，或 p = root ，则称 root 是 p 的祖先。</p><p><strong>最近公共祖先的定义</strong>：设节点 root 为节点 p, q 的某公共祖先，若其左子节点 root.left 和右子节点 root.right 都不是 p,q 的公共祖先，则称 root 是 “最近的公共祖先” 。</p><p><img src="https://pic.leetcode-cn.com/1599885247-rxcHcZ-Picture1.png" alt="Picture1.png"></p><p>根据以上定义，若 root 是 p, q 的 <strong>最近公共祖先</strong> ，则只可能为以下情况之一：</p><ul><li>p 和 q 在 root 的子树中，且分列 root 的 <strong>异侧</strong>（即分别在左、右子树中）</li><li>p = root ，且 q 在 root 的左或右子树中</li><li>q = root ，且 p 在 root 的左或右子树中</li></ul><p><img src="https://pic.leetcode-cn.com/1599885247-mgYjRv-Picture2.png" alt="Picture2.png"></p><p>考虑通过递归对二叉树进行先序遍历，当遇到节点 p 或 q 时返回。从底至顶回溯，当节点 p, q 在节点 root 的异侧时，节点 root 即为最近公共祖先，则向上返回 root 。</p><p><strong>递归解析</strong>：</p><ul><li><strong>终止条件</strong>：<ul><li>当越过叶节点，则直接返回 null</li><li>当 root 等于 p, q 则直接返回 root</li></ul></li><li>递推工作：<ul><li>开启递归左子节点，返回值记为 left</li><li>开启递归右子节点，返回值记为 right</li></ul></li><li><strong>返回值</strong>：根据 left 和 right，可展开为四种情况<ul><li>当 left 和 right <strong>同时为空</strong>，说明 root 的 左右子树都不包含 p，q，返回null</li><li>当 left 和 right <strong>同时不为空</strong>，说明 p，q分别位于 root 的两侧，则 root 为最近的公共祖先，返回 root</li><li>当 left 为空，right <strong>不为空</strong>，则 p，q都不在 root 的左子树中，直接返回 right<ul><li>p，q 其中一个在 root 的右子树中，此时 right 指向 p（假设为p）</li><li>p，q两节点都在 root 的<strong>右子树</strong>中，此时 right 指向最近公共祖先节点</li></ul></li><li>当 left 不为空，right <strong>为空</strong>，情况和上面同理</li></ul></li></ul><blockquote><p>观察发现，情况 1 课合并至 3，4内。</p></blockquote><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<span class="hljs-keyword">public</span>:    <span class="hljs-function">TreeNode* <span class="hljs-title">lowestCommonAncestor</span><span class="hljs-params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;    <span class="hljs-keyword">if</span>(!root||root==p||root==q)        <span class="hljs-keyword">return</span> root;    TreeNode* left=<span class="hljs-built_in">lowestCommonAncestor</span>(root-&gt;left,p,q);    TreeNode* right=<span class="hljs-built_in">lowestCommonAncestor</span>(root-&gt;right,p,q);    <span class="hljs-keyword">if</span>(!left)        <span class="hljs-keyword">return</span> right;    <span class="hljs-keyword">if</span>(!right)        <span class="hljs-keyword">return</span> left;    <span class="hljs-keyword">return</span> root;    &#125;&#125;;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+      <category>二叉树</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>112.路径总和</title>
+    <link href="/2022/10/17/%E7%AE%97%E6%B3%95/Leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/112-%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C/"/>
+    <url>/2022/10/17/%E7%AE%97%E6%B3%95/Leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/112-%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C/</url>
+    
+    <content type="html"><![CDATA[<h2 id="112-路径总和"><a href="#112-路径总和" class="headerlink" title="112. 路径总和"></a><a href="https://leetcode.cn/problems/path-sum/">112. 路径总和</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你二叉树的根节点 <code>root</code> 和一个表示目标和的整数 <code>targetSum</code> 。判断该树中是否存在 <strong>根节点到叶子节点</strong> 的路径，这条路径上所有节点值相加等于目标和 <code>targetSum</code> 。如果存在，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p><p>叶子节点 是指没有子节点的节点。</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><img src="https://assets.leetcode.com/uploads/2021/01/18/pathsum1.jpg" alt="img"></p><div class="code-wrapper"><pre><code class="hljs nix">输入：<span class="hljs-attr">root</span> = [<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">8</span>,<span class="hljs-number">11</span>,<span class="hljs-literal">null</span>,<span class="hljs-number">13</span>,<span class="hljs-number">4</span>,<span class="hljs-number">7</span>,<span class="hljs-number">2</span>,<span class="hljs-literal">null</span>,<span class="hljs-literal">null</span>,<span class="hljs-literal">null</span>,<span class="hljs-number">1</span>], <span class="hljs-attr">targetSum</span> = <span class="hljs-number">22</span>输出：<span class="hljs-literal">true</span>解释：等于目标和的根节点到叶节点路径如上图所示。</code></pre></div><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>递归思路：</p><ul><li>如果<strong>根为空</strong>，返回 <code>false</code></li><li>如果<strong>左右子树为空</strong>，则判断 <code>targetSum</code> 是否等于 <code>val</code></li><li>如果<strong>左子树不为空</strong>，则递归<strong>左子树</strong>和 <code>targetSum - val</code></li><li>如果<strong>右子树不为空</strong>，则递归<strong>右子树</strong>和 <code>targetSum - val</code></li></ul><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<span class="hljs-keyword">public</span>:    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">hasPathSum</span><span class="hljs-params">(TreeNode* root, <span class="hljs-type">int</span> targetSum)</span> </span>&#123;        <span class="hljs-comment">//根为空，返回false</span>        <span class="hljs-keyword">if</span>(root==<span class="hljs-literal">nullptr</span>)            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;                <span class="hljs-type">bool</span> left=<span class="hljs-literal">false</span>;        <span class="hljs-type">bool</span> right=<span class="hljs-literal">false</span>;        <span class="hljs-comment">//左右子树为空，判断val 是否等于targetSum</span>        <span class="hljs-keyword">if</span>(!root-&gt;left&amp;&amp;!root-&gt;right)            <span class="hljs-keyword">return</span> root-&gt;val==targetSum;        <span class="hljs-comment">//如果左子树不为空，targetSum减去当前的val，接着递归</span>        <span class="hljs-keyword">if</span>(root-&gt;left)            left=<span class="hljs-built_in">hasPathSum</span>(root-&gt;left,targetSum-root-&gt;val);        <span class="hljs-comment">//如果右子树不为空，targetSum减去当前的val，接着递归</span>        <span class="hljs-keyword">if</span>(root-&gt;right)            right=<span class="hljs-built_in">hasPathSum</span>(root-&gt;right,targetSum-root-&gt;val);        <span class="hljs-keyword">return</span> left||right;    &#125;&#125;;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+      <category>二叉树</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>111.二叉树的最小深度</title>
+    <link href="/2022/10/17/%E7%AE%97%E6%B3%95/Leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/111-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%B0%8F%E6%B7%B1%E5%BA%A6/"/>
+    <url>/2022/10/17/%E7%AE%97%E6%B3%95/Leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/111-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%B0%8F%E6%B7%B1%E5%BA%A6/</url>
+    
+    <content type="html"><![CDATA[<h2 id="111-二叉树的最小深度"><a href="#111-二叉树的最小深度" class="headerlink" title="111. 二叉树的最小深度"></a><a href="https://leetcode.cn/problems/minimum-depth-of-binary-tree/">111. 二叉树的最小深度</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，找出其<strong>最小深度</strong>。</p><p>最小深度是从根节点到最近叶子节点的最短路径上的节点数量。</p><p><strong>说明：</strong>叶子节点是指没有子节点的节点。</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><img src="https://assets.leetcode.com/uploads/2020/10/12/ex_depth.jpg" alt="img"></p><div class="code-wrapper"><pre><code class="hljs nix">输入：<span class="hljs-attr">root</span> = [<span class="hljs-number">3</span>,<span class="hljs-number">9</span>,<span class="hljs-number">20</span>,<span class="hljs-literal">null</span>,<span class="hljs-literal">null</span>,<span class="hljs-number">15</span>,<span class="hljs-number">7</span>]输出：<span class="hljs-number">2</span>输入：<span class="hljs-attr">root</span> = [<span class="hljs-number">2</span>,<span class="hljs-literal">null</span>,<span class="hljs-number">3</span>,<span class="hljs-literal">null</span>,<span class="hljs-number">4</span>,<span class="hljs-literal">null</span>,<span class="hljs-number">5</span>,<span class="hljs-literal">null</span>,<span class="hljs-number">6</span>]输出：<span class="hljs-number">5</span></code></pre></div><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>递归思路：</p><ul><li><p>如果<strong>根为空</strong>，高度为0</p></li><li><p>如果树的<strong>左右子树为空</strong>，高度为1</p></li><li><p>声明一个变量 <code>min_depth</code>，并初始化变量为 <code>INT_MAX</code></p></li><li><p>如果<strong>左子树不为空</strong>，则 <code>min_depth</code> 的值为左子树最小深度与<code>min_depth</code>其中的更小值</p></li><li><p>如果<strong>右子树不为空</strong>，则 <code>min_depth</code> 的值为右子树最小深度与<code>min_depth</code>其中的更小值</p></li><li><p>此树的高度为 <code>min_depth + 1</code></p></li></ul><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<span class="hljs-keyword">public</span>:    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minDepth</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;        <span class="hljs-comment">//如果根为空，高度为0</span>        <span class="hljs-keyword">if</span>(root==<span class="hljs-literal">nullptr</span>)            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;        <span class="hljs-comment">//如果左右子树为空，高度为1</span>        <span class="hljs-keyword">if</span>(root-&gt;left==<span class="hljs-literal">nullptr</span>&amp;&amp;root-&gt;right==<span class="hljs-literal">nullptr</span>)            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;        <span class="hljs-type">int</span> min_depth=INT_MAX;        <span class="hljs-keyword">if</span>(root-&gt;left!=<span class="hljs-literal">nullptr</span>)             min_depth=<span class="hljs-built_in">min</span>(<span class="hljs-built_in">minDepth</span>(root-&gt;left),min_depth);        <span class="hljs-keyword">if</span>(root-&gt;right!=<span class="hljs-literal">nullptr</span>)             min_depth=<span class="hljs-built_in">min</span>(<span class="hljs-built_in">minDepth</span>(root-&gt;right),min_depth);        <span class="hljs-keyword">return</span> min_depth+<span class="hljs-number">1</span>;    &#125;&#125;;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+      <category>二叉树</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>101.对称二叉树</title>
+    <link href="/2022/10/17/%E7%AE%97%E6%B3%95/Leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <url>/2022/10/17/%E7%AE%97%E6%B3%95/Leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    
+    <content type="html"><![CDATA[<h2 id="101-对称二叉树"><a href="#101-对称二叉树" class="headerlink" title="101. 对称二叉树"></a><a href="https://leetcode.cn/problems/symmetric-tree/">101. 对称二叉树</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个二叉树的根节点 <code>root</code> ， 检查它是否轴对称。</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><img src="https://assets.leetcode.com/uploads/2021/02/19/symtree1.jpg" alt="img"></p><div class="code-wrapper"><pre><code class="hljs xquery">输入<span class="hljs-built_in">：root</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>]输出<span class="hljs-built_in">：true</span></code></pre></div><p><img src="https://assets.leetcode.com/uploads/2021/02/19/symtree2.jpg" alt="img"></p><div class="code-wrapper"><pre><code class="hljs nix">输入：<span class="hljs-attr">root</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-literal">null</span>,<span class="hljs-number">3</span>,<span class="hljs-literal">null</span>,<span class="hljs-number">3</span>]输出：<span class="hljs-literal">false</span></code></pre></div><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>使用「队列」来保存子节点，每一次 <code>push</code> 一个子节点出来进行比较，如果不相同则返回 <code>false</code> ，如果相同则加入此节点的 「左子树 / 右子树」进队列，直到队列大小为0</p><p><strong>子树比较情况</strong>：</p><ul><li><p>都是空节点，两节点相同</p></li><li><p>一个节点为空，另一个节点不为空，两节点不相同</p></li><li><p>两节点的值相同，两节点相同</p></li></ul><p><strong>子节点添加顺序</strong>：</p><ul><li>为保持队列始终相等，左子树先添加左节点，再添加右节点，右子树先添加右节点再添加左节点</li></ul><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<span class="hljs-keyword">public</span>:    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isSymmetric</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;        queue&lt;TreeNode*&gt; queue;        queue.<span class="hljs-built_in">push</span>(root-&gt;left);        queue.<span class="hljs-built_in">push</span>(root-&gt;right);            <span class="hljs-keyword">while</span>(queue.<span class="hljs-built_in">size</span>()&gt;<span class="hljs-number">0</span>)        &#123;            <span class="hljs-comment">//取出left和right</span>            TreeNode* left=queue.<span class="hljs-built_in">front</span>();            queue.<span class="hljs-built_in">pop</span>();            TreeNode* right=queue.<span class="hljs-built_in">front</span>();            queue.<span class="hljs-built_in">pop</span>();            <span class="hljs-comment">//判断是否相等</span>            <span class="hljs-keyword">if</span>(left==<span class="hljs-literal">nullptr</span>&amp;&amp;right==<span class="hljs-literal">nullptr</span>)                <span class="hljs-keyword">continue</span>;            <span class="hljs-keyword">if</span>(left==<span class="hljs-literal">nullptr</span>&amp;&amp;right!=<span class="hljs-literal">nullptr</span>||left!=<span class="hljs-literal">nullptr</span>&amp;&amp;right==<span class="hljs-literal">nullptr</span>)                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;            <span class="hljs-keyword">if</span>(left-&gt;val!=right-&gt;val)                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;            <span class="hljs-comment">//添加子节点</span>            queue.<span class="hljs-built_in">push</span>(left-&gt;left);            queue.<span class="hljs-built_in">push</span>(right-&gt;right);            queue.<span class="hljs-built_in">push</span>(left-&gt;right);            queue.<span class="hljs-built_in">push</span>(right-&gt;left);        &#125;        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;    &#125;&#125;;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+      <category>二叉树</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>169.多数元素</title>
+    <link href="/2022/10/11/%E7%AE%97%E6%B3%95/Leetcode/%E5%93%88%E5%B8%8C%E8%A1%A8/169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0/"/>
+    <url>/2022/10/11/%E7%AE%97%E6%B3%95/Leetcode/%E5%93%88%E5%B8%8C%E8%A1%A8/169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0/</url>
+    
+    <content type="html"><![CDATA[<h2 id="169-多数元素"><a href="#169-多数元素" class="headerlink" title="169. 多数元素"></a><a href="https://leetcode.cn/problems/majority-element/">169. 多数元素</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个大小为 n 的数组 nums ，返回其中的多数元素。多数元素是指在数组中出现次数 大于 ⌊ n/2 ⌋ 的元素。</p><p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><div class="code-wrapper"><pre><code class="hljs inform7">输入：nums = <span class="hljs-comment">[3,2,3]</span>输出：3输入：nums = <span class="hljs-comment">[2,2,1,1,1,2,2]</span>输出：2</code></pre></div><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol><li>哈希表，记录每个数字出现的次数，并且用 count 和 candidate 进行记录出现次数最多的次数，或者判断次数大于 n/2 的时候直接返回也可以</li><li>Boyer-Moore 投票算法，抵消的思想，但是只适用于 n&gt;2 是众数这种情况</li><li>排序之后，直接返回 nums[nums.size()/2]</li></ol><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<span class="hljs-keyword">public</span>:    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">majorityElement</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;        <span class="hljs-built_in">sort</span>(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>());        <span class="hljs-type">int</span> count=<span class="hljs-number">1</span>;        <span class="hljs-type">int</span> candidate=nums[<span class="hljs-number">0</span>];        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;nums.<span class="hljs-built_in">size</span>();++i)        &#123;            <span class="hljs-keyword">if</span>(count==<span class="hljs-number">0</span>)            &#123;                candidate=nums[i];            &#125;            <span class="hljs-keyword">if</span>(candidate==nums[i])            &#123;                count++;            &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(candidate!=nums[i])            &#123;                count--;            &#125;        &#125;        <span class="hljs-keyword">return</span> candidate;    &#125;&#125;;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+      <category>哈希表</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>33. 搜索旋转排序数组</title>
+    <link href="/2022/10/09/%E7%AE%97%E6%B3%95/Leetcode/%E6%9F%A5%E6%89%BE/33-%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/"/>
+    <url>/2022/10/09/%E7%AE%97%E6%B3%95/Leetcode/%E6%9F%A5%E6%89%BE/33-%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="33-搜索旋转排序数组"><a href="#33-搜索旋转排序数组" class="headerlink" title="33. 搜索旋转排序数组"></a><a href="https://leetcode.cn/problems/search-in-rotated-sorted-array/">33. 搜索旋转排序数组</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>整数数组 nums 按升序排列，数组中的值 互不相同 。</p><p>在传递给函数之前，nums 在预先未知的某个下标 k（0 &lt;= k &lt; nums.length）上进行了 旋转，使数组变为 [nums[k], nums[k+1], …, nums[n-1], nums[0], nums[1], …, nums[k-1]]（下标 从 0 开始 计数）。例如， [0,1,2,4,5,6,7] 在下标 3 处经旋转后可能变为 [4,5,6,7,0,1,2] 。</p><p>给你 旋转后 的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的下标，否则返回 -1 。</p><p>你必须设计一个时间复杂度为 O(log n) 的算法解决此问题。</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><div class="code-wrapper"><pre><code class="hljs aspectj">输入：nums = [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], <span class="hljs-keyword">target</span> = <span class="hljs-number">0</span>输出：<span class="hljs-number">4</span>输入：nums = [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], <span class="hljs-keyword">target</span> = <span class="hljs-number">3</span>输出：<span class="hljs-number">-1</span>输入：nums = [<span class="hljs-number">1</span>], <span class="hljs-keyword">target</span> = <span class="hljs-number">0</span>输出：<span class="hljs-number">-1</span></code></pre></div><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>通过<strong>对比 nums[mid] 和 nums[0]</strong> 来确认此时处于<strong>左排序数组还是右排序数组</strong></p><p><strong>在通过 nums[mid] 和 target 对比来确认 target 处于哪一边</strong></p><p><strong>再通过 target &lt;= nums[0] 和 target &lt;=nums[n-1] 来确定target 确实处于区间内</strong> </p><p><img src="https://assets.leetcode-cn.com/solution-static/33/33_fig1.png" alt="fig1"></p><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<span class="hljs-keyword">public</span>:    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">search</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> target)</span> </span>&#123;        <span class="hljs-type">int</span> n=nums.<span class="hljs-built_in">size</span>();        <span class="hljs-type">int</span> low=<span class="hljs-number">0</span>;        <span class="hljs-type">int</span> high=nums.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;        <span class="hljs-keyword">while</span>(low&lt;=high)        &#123;            <span class="hljs-type">int</span> mid=low+(high-low)/<span class="hljs-number">2</span>;            <span class="hljs-keyword">if</span>(nums[mid]==target)            &#123;                <span class="hljs-keyword">return</span> mid;            &#125;            <span class="hljs-comment">//如果在左排序数组</span>            <span class="hljs-keyword">if</span>(nums[mid]&gt;=nums[<span class="hljs-number">0</span>])            &#123;                <span class="hljs-keyword">if</span>(nums[mid]&gt;target&amp;&amp;nums[<span class="hljs-number">0</span>]&lt;=target)                &#123;                    high=mid<span class="hljs-number">-1</span>;                &#125;<span class="hljs-keyword">else</span>                &#123;                    low=mid+<span class="hljs-number">1</span>;                &#125;            &#125;            <span class="hljs-comment">//如果在右排序数组</span>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(nums[mid]&lt;nums[<span class="hljs-number">0</span>])            &#123;                <span class="hljs-keyword">if</span>(nums[mid]&lt;target&amp;&amp;target&lt;=nums[n<span class="hljs-number">-1</span>])                &#123;                    low=mid+<span class="hljs-number">1</span>;                &#125;                <span class="hljs-keyword">else</span>                &#123;                    high=mid<span class="hljs-number">-1</span>;                &#125;            &#125;        &#125;        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;    &#125;&#125;;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+      <category>查找</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>剑指 Offer 11. 旋转数组的最小数字</title>
+    <link href="/2022/10/09/%E7%AE%97%E6%B3%95/Leetcode/%E6%9F%A5%E6%89%BE/%E5%89%91%E6%8C%87-Offer-11-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/"/>
+    <url>/2022/10/09/%E7%AE%97%E6%B3%95/Leetcode/%E6%9F%A5%E6%89%BE/%E5%89%91%E6%8C%87-Offer-11-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/</url>
+    
+    <content type="html"><![CDATA[<h2 id="剑指-Offer-11-旋转数组的最小数字"><a href="#剑指-Offer-11-旋转数组的最小数字" class="headerlink" title="剑指 Offer 11. 旋转数组的最小数字"></a><a href="https://leetcode.cn/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/">剑指 Offer 11. 旋转数组的最小数字</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。</p><p>给你一个可能存在 重复 元素值的数组 numbers ，它原来是一个升序排列的数组，并按上述情形进行了一次旋转。请返回旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一次旋转，该数组的最小值为 1。  </p><p>注意，数组 [a[0], a[1], a[2], …, a[n-1]] 旋转一次 的结果为数组 [a[n-1], a[0], a[1], a[2], …, a[n-2]] 。</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><div class="code-wrapper"><pre><code class="hljs accesslog">输入：numbers = <span class="hljs-string">[3,4,5,1,2]</span>输出：<span class="hljs-number">1</span>输入：numbers = <span class="hljs-string">[2,2,2,0,1]</span>输出：<span class="hljs-number">0</span></code></pre></div><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>旋转数组的最小元素即为<strong>右排序数组</strong>的首个元素 num[x]，称 x 为旋转点。</p><p><img src="https://pic.leetcode-cn.com/1599404042-JMvjtL-Picture1.png" alt="Picture1.png"></p><p>算法流程：</p><ol><li><strong>初始化</strong>：声明 low，high 双指针分别指向 nums 数组左右两端</li><li><strong>二分查找</strong>，设 mid = low + (high-low)/2 为中点<ul><li>当 nums[mid] &gt; nums[high]，mid 一定在 左排序数组 中，即旋转点 x 一定在 [mid+1,high]闭区间内，因此执行 low = mid +1</li><li>当 nums[mid] &lt; nums[high] 时： mid 一定在 右排序数组 中，即旋转点 x 一定在[low,mid] 闭区间内，因此执行 high = mid；</li><li>当 nums[mid] = nums[high]时： 无法判断 mm 在哪个排序数组中，即无法判断旋转点 xx 在 [low,mid]还是[mid+1,high]区间中。解决方案： 执行 high=high-1 缩小判断范围</li></ul></li><li>当 low == high 时跳出循环，返回 num[low]</li></ol><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<span class="hljs-keyword">public</span>:    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minArray</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; numbers)</span> </span>&#123;        <span class="hljs-type">int</span> low = <span class="hljs-number">0</span>,        <span class="hljs-type">int</span> high = numbers.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;        <span class="hljs-keyword">while</span> (low &lt;= high) &#123;            <span class="hljs-type">int</span> mid = (low + high) / <span class="hljs-number">2</span>;            <span class="hljs-keyword">if</span> (numbers[mid] &gt; numbers[high])                low = mid + <span class="hljs-number">1</span>;            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (numbers[mid] &lt; numbers[high])                high = mid;            <span class="hljs-keyword">else</span>                 high--;        &#125;        <span class="hljs-keyword">return</span> numbers[low];    &#125;&#125;;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+      <category>字符串</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>74.搜索二维矩阵</title>
+    <link href="/2022/10/09/%E7%AE%97%E6%B3%95/Leetcode/%E6%9F%A5%E6%89%BE/74-%E6%90%9C%E7%B4%A2%E4%BA%8C%E7%BB%B4%E7%9F%A9%E9%98%B5/"/>
+    <url>/2022/10/09/%E7%AE%97%E6%B3%95/Leetcode/%E6%9F%A5%E6%89%BE/74-%E6%90%9C%E7%B4%A2%E4%BA%8C%E7%BB%B4%E7%9F%A9%E9%98%B5/</url>
+    
+    <content type="html"><![CDATA[<h2 id="74-搜索二维矩阵"><a href="#74-搜索二维矩阵" class="headerlink" title="74. 搜索二维矩阵"></a><a href="(https://leetcode.cn/problems/search-a-2d-matrix/)">74. 搜索二维矩阵</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：</p><p>每行中的整数从左到右按升序排列。<br>每行的第一个整数大于前一行的最后一个整数。</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><img src="https://assets.leetcode.com/uploads/2020/10/05/mat.jpg" alt="img"></p><div class="code-wrapper"><pre><code class="hljs lua">输入：matrix = <span class="hljs-string">[[1,3,5,7],[10,11,16,20],[23,30,34,60]]</span>, target = <span class="hljs-number">3</span>输出：<span class="hljs-literal">true</span></code></pre></div><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>此题目二维数组特征为</p><ul><li>每行中的整数从左到右按升序排列</li><li>每行的第一个整数大于前一行的最后一个整数</li></ul><p>这表明二维数组其实可以看成一个顺序的一维数组进行排序。</p><p>low = 0，high= m*n-1；</p><p>但是如何通过确定当前的行数和列数？</p><ul><li>因为 n 个数组确定一行，所以 mid / n 可以得到当前的行数</li><li>通过 mid mod n 可以确定当前列数</li></ul><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<span class="hljs-keyword">public</span>:    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">searchMatrix</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; matrix, <span class="hljs-type">int</span> target)</span> </span>&#123;        <span class="hljs-type">int</span> m=matrix.<span class="hljs-built_in">size</span>();        <span class="hljs-type">int</span> n=matrix[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();        <span class="hljs-type">int</span> low=<span class="hljs-number">0</span>;        <span class="hljs-type">int</span> high=m*n<span class="hljs-number">-1</span>;        <span class="hljs-keyword">while</span>(low&lt;=high)        &#123;            <span class="hljs-type">int</span> mid=low+(high-low)/<span class="hljs-number">2</span>;            <span class="hljs-type">int</span> x=matrix[mid/n][mid%n];            <span class="hljs-keyword">if</span>(x==target)            &#123;                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;            &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(x&gt;target)            &#123;                high=mid<span class="hljs-number">-1</span>;            &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(x&lt;target)            &#123;                low=mid+<span class="hljs-number">1</span>;            &#125;        &#125;        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;    &#125;&#125;;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+      <category>查找</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>剑指 Offer 04. 二维数组中的查找</title>
+    <link href="/2022/10/09/%E7%AE%97%E6%B3%95/Leetcode/%E6%9F%A5%E6%89%BE/%E5%89%91%E6%8C%87-Offer-04-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/"/>
+    <url>/2022/10/09/%E7%AE%97%E6%B3%95/Leetcode/%E6%9F%A5%E6%89%BE/%E5%89%91%E6%8C%87-Offer-04-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/</url>
+    
+    <content type="html"><![CDATA[<h2 id="剑指-Offer-04-二维数组中的查找"><a href="#剑指-Offer-04-二维数组中的查找" class="headerlink" title="剑指 Offer 04. 二维数组中的查找"></a><a href="(https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/)">剑指 Offer 04. 二维数组中的查找</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><div class="code-wrapper"><pre><code class="hljs angelscript"><span class="hljs-string">[</span><span class="hljs-string">  [1,   4,  7, 11, 15]</span>,<span class="hljs-string">  [2,   5,  8, 12, 19]</span>,<span class="hljs-string">  [3,   6,  9, 16, 22]</span>,<span class="hljs-string">  [10, 13, 14, 17, 24]</span>,<span class="hljs-string">  [18, 21, 23, 26, 30]</span>]给定 target = <span class="hljs-number">5</span>，返回 <span class="hljs-literal">true</span>。给定 target = <span class="hljs-number">20</span>，返回 <span class="hljs-literal">false</span>。</code></pre></div><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>此题目二维数组特点「<strong>从左往右，从上往下依次递增</strong>」，可以利用此特性缩小搜寻范围。</p><p>可以从<strong>左下角元素</strong> flag 开始查找</p><ol><li><p>若 flag &gt; target ，则 target 一定在 flag 所在 <strong>行的上方</strong> ，即 flag 所在行可被消去</p></li><li><p>若 flag &lt; target ，则 target 一定在 flag 所在 <strong>列的右方</strong> ，即 flag 所在列可被消去。</p></li><li><p>若 flag == target，则找到了目标值</p></li></ol><blockquote><p>每轮 <code>i</code> 或 <code>j</code> 移动后，相当于生成了“消去一行（列）的新矩阵”， 索引<code>(i,j)</code> 指向新矩阵的左下角元素（标志数），因此可重复使用以上性质消去行（列）。</p></blockquote><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<span class="hljs-keyword">public</span>:    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">findNumberIn2DArray</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; matrix, <span class="hljs-type">int</span> target)</span> </span>&#123;         <span class="hljs-type">int</span> m=matrix.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;         <span class="hljs-type">int</span> n=<span class="hljs-number">0</span>;         <span class="hljs-keyword">while</span>(m&gt;=<span class="hljs-number">0</span>&amp;&amp;n&lt;matrix[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>())         &#123;             <span class="hljs-keyword">if</span>(matrix[m][n]&lt;target)             &#123;                 n++;             &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(matrix[m][n]&gt;target)             &#123;                 m--;             &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(matrix[m][n]==target)             &#123;                 <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;             &#125;         &#125;         <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;    &#125;&#125;;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+      <category>查找</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>34.在排序数据中查找元素第一个和最后一个位置</title>
+    <link href="/2022/10/09/%E7%AE%97%E6%B3%95/Leetcode/%E6%9F%A5%E6%89%BE/34-%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E6%8D%AE%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/"/>
+    <url>/2022/10/09/%E7%AE%97%E6%B3%95/Leetcode/%E6%9F%A5%E6%89%BE/34-%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E6%8D%AE%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h2 id="34-在排序数据中查找元素第一个和最后一个位置"><a href="#34-在排序数据中查找元素第一个和最后一个位置" class="headerlink" title="34.在排序数据中查找元素第一个和最后一个位置"></a><a href="https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/">34.在排序数据中查找元素第一个和最后一个位置</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个按照非递减顺序排列的整数数组 nums，和一个目标值 target。请你找出给定目标值在数组中的开始位置和结束位置。</p><p>如果数组中不存在目标值 target，返回 [-1, -1]。</p><p>你必须设计并实现时间复杂度为 O(log n) 的算法解决此问题。</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><div class="code-wrapper"><pre><code class="hljs inform7">输入：nums = <span class="hljs-comment">[5,7,7,8,8,10]</span>, target = 8输出：<span class="hljs-comment">[3,4]</span>输入：nums = <span class="hljs-comment">[5,7,7,8,8,10]</span>, target = 6输出：<span class="hljs-comment">[-1,-1]</span>输入：nums = <span class="hljs-comment">[]</span>, target = 0输出：<span class="hljs-comment">[-1,-1]</span></code></pre></div><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>题目<strong>升序</strong>，所以可以使用二分查找法，但是如何处理重复数字呢？</p><p>我们可以找到「第一个等于 target 的位置」，和第一个「大于 target 的数字的下标 -1」，所以只需要在二分查找里找到<strong>大于等于</strong> target 的下标，在找到一个<strong>大于等于</strong> target +1 的下标，然后再将此下标减一即为结果。</p><p>如果找不到 target，就返回数组的长度</p><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<span class="hljs-keyword">public</span>:    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">searchRange</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> target)</span></span><span class="hljs-function">    </span>&#123;        <span class="hljs-type">int</span> n=nums.<span class="hljs-built_in">size</span>();        <span class="hljs-comment">//寻找左边界(这里寻找第一个 &gt;= target的索引)</span>        <span class="hljs-type">int</span> leftIndex = <span class="hljs-built_in">search</span>(nums, target);        <span class="hljs-comment">//如果没有找到</span>        <span class="hljs-keyword">if</span> (leftIndex &gt;= n || nums[leftIndex] != target)&#123;            <span class="hljs-keyword">return</span> &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>&#125;;        &#125;        <span class="hljs-comment">//寻找右边界(这里寻找第一个 &gt;= target+1的索引)</span>        <span class="hljs-type">int</span> rightIndex = <span class="hljs-built_in">search</span>(nums, target + <span class="hljs-number">1</span>);        <span class="hljs-keyword">return</span> &#123;leftIndex, rightIndex - <span class="hljs-number">1</span>&#125;;    &#125;        <span class="hljs-comment">//找到&gt;=target的index,找不到返回数组长度</span>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">search</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt; nums,<span class="hljs-type">int</span> target)</span></span><span class="hljs-function">    </span>&#123;;        <span class="hljs-type">int</span> low=<span class="hljs-number">0</span>;        <span class="hljs-type">int</span> high=nums.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;        <span class="hljs-keyword">while</span>(low&lt;=high)        &#123;            <span class="hljs-type">int</span> mid=(low+high)/<span class="hljs-number">2</span>;            <span class="hljs-keyword">if</span>(nums[mid]&gt;=target)            &#123;                high=mid<span class="hljs-number">-1</span>;            &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(nums[mid]&lt;target)            &#123;                low=mid+<span class="hljs-number">1</span>;            &#125;        &#125;        <span class="hljs-keyword">return</span> low;    &#125;&#125;;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+      <category>查找</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>15.三数之和</title>
+    <link href="/2022/10/07/%E7%AE%97%E6%B3%95/Leetcode/%E5%93%88%E5%B8%8C%E8%A1%A8/15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
+    <url>/2022/10/07/%E7%AE%97%E6%B3%95/Leetcode/%E5%93%88%E5%B8%8C%E8%A1%A8/15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
+    
+    <content type="html"><![CDATA[<h2 id="15-三数之和"><a href="#15-三数之和" class="headerlink" title="15.三数之和"></a><a href="https://leetcode.cn/problems/3sum/">15.三数之和</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个整数数组 nums ，判断是否存在三元组 [nums[i], nums[j], nums[k]] 满足 i != j、i != k 且 j != k ，同时还满足 nums[i] + nums[j] + nums[k] == 0 。请</p><p>你返回所有和为 0 且不重复的三元组。</p><p>注意：答案中不可以包含重复的三元组。</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><div class="code-wrapper"><pre><code class="hljs inform7">输入：nums = <span class="hljs-comment">[-1,0,1,2,-1,-4]</span>输出：<span class="hljs-comment">[<span class="hljs-comment">[-1,-1,2]</span>,<span class="hljs-comment">[-1,0,1]</span>]</span>解释：nums<span class="hljs-comment">[0]</span> + nums<span class="hljs-comment">[1]</span> + nums<span class="hljs-comment">[2]</span> = (-1) + 0 + 1 = 0 。nums<span class="hljs-comment">[1]</span> + nums<span class="hljs-comment">[2]</span> + nums<span class="hljs-comment">[4]</span> = 0 + 1 + (-1) = 0 。nums<span class="hljs-comment">[0]</span> + nums<span class="hljs-comment">[3]</span> + nums<span class="hljs-comment">[4]</span> = (-1) + 2 + (-1) = 0 。不同的三元组是 <span class="hljs-comment">[-1,0,1]</span> 和 <span class="hljs-comment">[-1,-1,2]</span> 。注意，输出的顺序和三元组的顺序并不重要。</code></pre></div><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li><p>使用 hashMap 来找是否存在 -nums[i] - nums[j] 的存在，然后使用 set 来保存三元组避免重复数据，对 nums 进行排序，之后在第一层循环通过 if(nums[i-1]==nums[i]&amp;&amp;i&gt;0) 来判断重复</p><blockquote><p>C++ 版本时间和空间仅超过了 5%，故弃用</p></blockquote></li><li><p>双指针法</p><ul><li>不重复的本质<ul><li>第二重循环枚举到的元素不小于当前第一重循环枚举到的元素</li><li>第三重循环枚举到的元素不小于当前第二重循环枚举到的元素</li></ul></li><li>三数之和简化为两数之和<ul><li>使用双指针</li><li>定义 second 和 third，-nums[i] 则是需要比较的对象</li><li>如果 second + third &gt; target，third–<ul><li>如果second == third，进行下一轮循环，即 second++</li><li>如果second + third == target，加入进 result</li></ul></li></ul></li></ul></li></ul><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<span class="hljs-keyword">public</span>:    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">threeSum</span>(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums) &#123;        <span class="hljs-keyword">if</span>(nums.<span class="hljs-built_in">size</span>()&lt;<span class="hljs-number">3</span>)            <span class="hljs-keyword">return</span> &#123;&#125;;        <span class="hljs-built_in">sort</span>(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>());        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; result;        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> first=<span class="hljs-number">0</span>;first&lt;nums.<span class="hljs-built_in">size</span>();++first)        &#123;            <span class="hljs-comment">//排除重复</span>            <span class="hljs-keyword">if</span>(first&gt;<span class="hljs-number">0</span>&amp;&amp;nums[first<span class="hljs-number">-1</span>]==nums[first])                <span class="hljs-keyword">continue</span>;            <span class="hljs-comment">//C对应指针</span>            <span class="hljs-type">int</span> third=nums.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;            <span class="hljs-comment">//需要找到的目标</span>            <span class="hljs-type">int</span> target=-nums[first];            <span class="hljs-comment">//枚举 b</span>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> second=first+<span class="hljs-number">1</span>;second&lt;nums.<span class="hljs-built_in">size</span>();++second)            &#123;                <span class="hljs-comment">//排除重复</span>                <span class="hljs-keyword">if</span>(second&gt;first+<span class="hljs-number">1</span>&amp;&amp;nums[second<span class="hljs-number">-1</span>]==nums[second])                &#123;                    <span class="hljs-keyword">continue</span>;                &#125;                <span class="hljs-keyword">while</span>(second&lt;third&amp;&amp;nums[second]+nums[third]&gt;target)                &#123;                    --third;                &#125;                <span class="hljs-keyword">if</span>(second==third)                &#123;                    <span class="hljs-keyword">break</span>;                &#125;                <span class="hljs-keyword">if</span>(nums[second]+nums[third]==target)                &#123;                    result.<span class="hljs-built_in">push_back</span>(&#123;nums[first],nums[second],nums[third]&#125;);                &#125;            &#125;        &#125;        <span class="hljs-keyword">return</span> result;    &#125;&#125;;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+      <category>哈希表</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>中文排版指南</title>
+    <link href="/2022/09/29/%E6%8E%92%E7%89%88/%E4%B8%AD%E6%96%87%E6%8E%92%E7%89%88%E6%8C%87%E5%8D%97/"/>
+    <url>/2022/09/29/%E6%8E%92%E7%89%88/%E4%B8%AD%E6%96%87%E6%8E%92%E7%89%88%E6%8C%87%E5%8D%97/</url>
+    
+    <content type="html"><![CDATA[<h2 id="中文排版规范"><a href="#中文排版规范" class="headerlink" title="中文排版规范"></a>中文排版规范</h2><h3 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h3><ul><li><p>中英文之间需要增加空格</p><blockquote><p>在 iPhone 上。</p></blockquote></li><li><p>中文与数字之间需要增加空格</p><blockquote><p>今天花了 5000 元。</p></blockquote></li><li><p>链接前后需要增加空格</p><blockquote><p>这是 <a href="www.baidu.com">百度</a> 的网址。</p></blockquote></li><li><p>数字与单位之间无须增加空格</p><blockquote><p>我的 SSD 容量是 1TB。</p></blockquote></li><li><p>度数/百分比和数字之间也不需要加空格</p><blockquote><p>直角的度数为 90°。</p></blockquote></li><li><p>货币序号后不加空格</p><blockquote><p>From $99。</p></blockquote></li></ul><h3 id="标点符号"><a href="#标点符号" class="headerlink" title="标点符号"></a>标点符号</h3><ul><li>省略号「Shift + 6」……，占两个汉字空间</li><li>破折号「Shift + -」——，占两个汉字空间</li><li>波浪线「Shift + `」~</li><li>引号使用中文直角引号「」『』</li><li>英文整句，特殊名词，其内容使用半角标点</li><li>中文句子里有英文书籍名时，不适用中文书名号，使用英文斜体表示书名</li><li>中文句子内夹有英文文章的标题，使用中文引号 + 英文正体字表示</li></ul><h3 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h3><ul><li><p>专有名词使用正确的大小写</p><blockquote><p>YouTube 是 Google，Inc. 的产品。</p></blockquote></li><li><p>使用正确，别人能够理解的缩写</p><blockquote><p>茶百道真的是 yyds。</p></blockquote></li></ul><h3 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h3><ul><li>目前的排版风格没有统一，日期时间的数字与汉字按照正常间隔处理，日期整体不需要再加空格。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>排版</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>排版</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Markdown 排版指南</title>
+    <link href="/2022/09/29/%E6%8E%92%E7%89%88/Markdown-%E6%8E%92%E7%89%88%E6%8C%87%E5%8D%97/"/>
+    <url>/2022/09/29/%E6%8E%92%E7%89%88/Markdown-%E6%8E%92%E7%89%88%E6%8C%87%E5%8D%97/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Markdown-排版规范"><a href="#Markdown-排版规范" class="headerlink" title="Markdown 排版规范"></a>Markdown 排版规范</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><ul><li><p>文章顶层标题使用<strong>二级标题</strong>，如果网页提供标题位置则省略标题</p></li><li><p>小节使用<strong>三级标题</strong></p></li><li><p>小节中进一步分层组织使用<strong>四级标题</strong></p></li><li><p>少使用<strong>五级标题</strong>和六级标题，使用<strong>有序列表</strong>和<strong>无序列表</strong>代替</p></li><li><p>不适用<strong>一级标题</strong></p></li></ul><h3 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h3><ul><li><p>正文段落之间使用空行进行风格</p><blockquote><p>Markdown 是一种标记语言。在写作时，你的所有文字都是没有样式的纯文本，在其中插入若干 Markdown 标记后，被标记的文字便有了样式。</p><p>比如，在你所写的文字中，希望某一行的最终排版呈现一级标题的样式，那就给这行文字加个一级标题的标记；某个地方有两个字需要加粗，那就给这两个字加个粗体标记。</p></blockquote></li></ul><h3 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h3><ul><li><p>文章中每个段落的开头<strong>不要</strong>缩进</p></li><li><p>列表中嵌套列表时，内层列表使用 4 个空格进行缩进</p></li><li><p>想要像上面那样在一个列表项中嵌入引用块，只要在 Markdown 中将引用块用 4 个空格缩进。除此之外，图片、代码块等元素也可以在列表下缩进</p></li><li><p>缩进时使用空格符，不用 Tab 符test</p></li></ul><h2 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h2><ul><li>强调某处内容使用<strong>粗体</strong></li><li>中文不使用写题，英文排版可以使用斜体表达强调，书名，题目等</li></ul><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul><li>引用内容时</li><li>作示例时</li><li>给出提示，警告等额外说明时</li></ul><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul><li><p>某一行文字中嵌入简短代码使用<strong>行内代码</strong></p><blockquote><p><code>include &lt;iostream&gt; </code></p></blockquote></li><li><p>行内代码的两点各添加一个空格，若行内代码紧邻标点符号，则其与标点之间不加空格</p></li><li><p>多行代码使用<strong>代码块</strong>，尽量指明编程语言</p></li></ul><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><blockquote><p>使用![图片名称](xx.xx/xx)</p></blockquote><p>图片名称要对图片主题进行描述，在某些网站无法加载图片时会显示图片名称</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>排版</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>排版</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>151.反转字符串中的单词</title>
+    <link href="/2022/09/26/%E7%AE%97%E6%B3%95/Leetcode/%E5%AD%97%E7%AC%A6%E4%B8%B2/151-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D/"/>
+    <url>/2022/09/26/%E7%AE%97%E6%B3%95/Leetcode/%E5%AD%97%E7%AC%A6%E4%B8%B2/151-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D/</url>
+    
+    <content type="html"><![CDATA[<h2 id="151-反转字符串中的单词"><a href="#151-反转字符串中的单词" class="headerlink" title="151.反转字符串中的单词"></a><a href="https://leetcode.cn/problems/reverse-words-in-a-string/">151.反转字符串中的单词</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个字符串 s ，请你反转字符串中 单词 的顺序。</p><p>单词 是由非空格字符组成的字符串。s 中使用至少一个空格将字符串中的 单词 分隔开。</p><p>返回 单词 顺序颠倒且 单词 之间用单个空格连接的结果字符串。</p><p>注意：输入字符串 s中可能会存在前导空格、尾随空格或者单词间的多个空格。返回的结果字符串中，单词间应当仅用单个空格分隔，且不包含任何额外的空格。</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><div class="code-wrapper"><pre><code class="hljs abnf">输入：s <span class="hljs-operator">=</span> <span class="hljs-string">&quot;  hello world  &quot;</span>输出：<span class="hljs-string">&quot;world hello&quot;</span>解释：反转后的字符串中不能存在前导空格和尾随空格。</code></pre></div><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>先反转字符串，这样就达到了输出顺序的要求，然后再把各个单词反转，<strong>每一次都要手动加上空格</strong>，然后在最后 return 的时候把末尾多余空格去掉。</p><p><img src="https://pic.leetcode-cn.com/Figures/151/mutable2.png" alt="fig"></p><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<span class="hljs-keyword">public</span>:    <span class="hljs-function">string <span class="hljs-title">reverseWords</span><span class="hljs-params">(string s)</span> </span>&#123;        string result;        <span class="hljs-comment">//反转字符串</span>        <span class="hljs-built_in">reverse</span>(s.<span class="hljs-built_in">begin</span>(),s.<span class="hljs-built_in">end</span>());        <span class="hljs-comment">//开始逆置每个单词</span>        <span class="hljs-type">int</span> length=s.<span class="hljs-built_in">size</span>();        <span class="hljs-type">int</span> index=<span class="hljs-number">0</span>;        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> start=<span class="hljs-number">0</span>;start&lt;length;++start)        &#123;            <span class="hljs-comment">//避免多余的空格影响，先判断此时是否为空格</span>            <span class="hljs-keyword">if</span>(s[start]!=<span class="hljs-string">&#x27; &#x27;</span>)            &#123;                <span class="hljs-comment">//如果逆转了要补一个空格</span>                <span class="hljs-keyword">if</span>(index!=<span class="hljs-number">0</span>)                &#123;                    s[index]=<span class="hljs-string">&#x27; &#x27;</span>;                    index++;                &#125;                <span class="hljs-comment">//通过while循环寻找完整单词，这里end的作用方便找到erase函数的逆转区间</span>                <span class="hljs-type">int</span> end=start;                <span class="hljs-keyword">while</span>(end&lt;length&amp;&amp;s[end]!=<span class="hljs-string">&#x27; &#x27;</span>)&#123;                    s[index++]=s[end++];                &#125;                <span class="hljs-comment">//反转字符串</span>                <span class="hljs-built_in">reverse</span>(s.<span class="hljs-built_in">begin</span>()+index-(end-start),s.<span class="hljs-built_in">begin</span>()+index);                start=end;            &#125;        &#125;        s.<span class="hljs-built_in">erase</span>(s.<span class="hljs-built_in">begin</span>()+index,s.<span class="hljs-built_in">end</span>());        <span class="hljs-keyword">return</span> s;    &#125;&#125;;</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+      <category>字符串</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
